@@ -64,7 +64,21 @@
 			<div class = "problem">
 				<div class = "text">Nonlinear Regression</div>
 				By plotting our previously determined points from the section 'Obtaining the reaction velocities V0', we would come up with points that may seem to line up to fit the michaelis-menten curve similar to the red curve at the top of this page.<br><br>
-				From the michaelis-menten equation, we have two unknown parameters: V<sub>max</sub> and K<sub>m</sub>. The animation from desmos is shown where the variable y represents V0 (reaction velocity v), x represents Substrate Concentration [S], v represents V<sub>max</sub> and k represents K<sub>m</sub>. Our goal is to find the best V<sub>max</sub> and K<sub>m</sub> to model our data points. In an ideal world, there will be a value for V<sub>max</sub> and K<sub>m</sub> which will yield a curve which passes through each and every single data point.
+				From the michaelis-menten equation, we have two unknown parameters: V<sub>max</sub> and K<sub>m</sub>. The animation from desmos is shown where the variable y represents V0 (reaction velocity v), x represents Substrate Concentration [S], v represents V<sub>max</sub> and k represents K<sub>m</sub>. Our goal is to find the best V<sub>max</sub> and K<sub>m</sub> to model our data points. In an ideal world, there will be a value for V<sub>max</sub> and K<sub>m</sub> which will yield a curve that passes through each and every single data point.
+			</div>
+		</div>
+		<br>
+		<div class = "algebraic_approach">
+			<div class = "algebra">
+				<div class = "text">Step 1: The Algebra Based Approach</div>
+				Our first approach involves solving systems of equations. At the moment, we are solving for two unknown variables V<sub>max</sub> and K<sub>m</sub>. Because we need two equations to solve two unknowns, we can pick any two coordinates from our previously determined 10 points to form two equations. The working is shown with the final equations highlighted.<br><br>
+				Just for example, we might test out points (S7, V7), (S10, V10). Their values are (250 uM, 0.5553 uM / s) and (2000 uM, 0.8794 uM / s) respectively. Based on the highlighted final equations, we should calculate K<sub>m</sub> first since that equation does not hold any unknown values. Though it does not matter which points we pick for V1, S1 and V2, S2, it is important to be consistent after you choose the values. The computed K<sub>m</sub> based on these two coordinates is 189.925 uM and the V<sub>max</sub> value was found to be 0.9594 uM / s. This method can be repeated for several different combinations of points e.g. (S7, V7), (S8, V8).
+				<br><br>
+				With this method, the challenge is to determine which two set of coordinates out of our 10 would be the best to select and represent the model. If we try out all possible combinations we will get 0.5*n*(n-1) different possibilities (where n is the number of points total). We therefore have 45 different combinations to test and try out.<br><br>
+				The first iteration of this idea was to find the best pair of coordinates out of the 45 combinations which resulted in the least SSE (Sum of Squared Errors). While this method was fairly accurate, it lacked precision (especially when we ran the algorithm on all 5 enzymes). This led us to reconsider our approach and ultimately led to the second method: The Calculus Based Approach.
+			</div>
+			<div class = "alg_work">
+				<img src = "images/algebraic.png" class = "pic" width = "100%" alt = "">
 			</div>
 		</div>
 	</body>

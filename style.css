@@ -157,6 +157,33 @@
 	text-align: justify;
 }
 
+.algebraic_approach {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: space-between;
+	top: 100px;
+	position: relative;
+}
+
+.algebra {
+	position: relative;
+	left: 2%;
+	background: #e3e3e3;
+	width: 65%;
+	font-family: 'Poppins', sans-serif;
+	color: #00274c;
+	border-radius: 15px;
+	padding: 10px;
+	text-align: justify;
+}
+
+.alg_work {
+	position: relative;
+	right: 2%;
+	width: 30%;
+}
+
 @media (max-width: 1200px){
 	.desmos, .problem, .pic1, .information, .v0_image, .v0s {
 		margin-bottom: 15px;

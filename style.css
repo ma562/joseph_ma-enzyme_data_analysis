@@ -216,14 +216,74 @@
 	width: 30%;
 }
 
+.mix_n_match {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: space-between;
+	top: 100px;
+	position: relative;
+}
+
+.mix {
+	position: relative;
+	left: 2%;
+	background: #e3e3e3;
+	width: 55%;
+	font-family: 'Poppins', sans-serif;
+	color: #00274c;
+	border-radius: 15px;
+	padding: 10px;
+	text-align: justify;
+}
+
+.shift {
+	margin-left: 15px;
+}
+
+.match {
+	position: relative;
+	right: 2%;
+	width: 40%
+}
+
+.resultsA, .resultsB, .resultsC, .resultsD, .resultsE {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: space-between;
+	top: 100px;
+	position: relative;
+}
+
+.numericalA, .numericalB, .numericalC, .numericalD, .numericalE {
+	position: relative;
+	left: 2%;
+	background: #e3e3e3;
+	width: 25%;
+	font-family: 'Poppins', sans-serif;
+	font-size: 20px;
+	color: #00274c;
+	border-radius: 15px;
+	padding: 10px;
+	text-align: justify;
+}
+
+.graphA, .graphB, .graphC, .graphD, .graphE {
+	position: relative;
+	width: 70%;
+	right: 2%;
+}
+
+
 @media (max-width: 1200px){
-	.calculus, .calc_work, .calc_work2, .algebra, .alg_work, .desmos, .problem, .pic1, .information, .v0_image, .v0s {
+	.graphA, .graphB, .graphC, .graphD, .graphE, .numericalA, .numericalB, .numericalC, .numericalD, .numericalE, .mix, .match, .calculus, .calc_work, .calc_work2, .algebra, .alg_work, .desmos, .problem, .pic1, .information, .v0_image, .v0s {
 		margin-bottom: 15px;
 	}
-	.calculus, .algebra, .v0s, .problem, .information {
+	.numericalA, .numericalB, .numericalC, .numericalD, .numericalE, .mix, .calculus, .algebra, .v0s, .problem, .information {
 		padding: 15px;
 	}
-	.calculus, .calc_work, .calc_work2, .algebra, .alg_work, .desmos, .problem, .pic1, .information, .v0_image, .v0s {
+	.graphA, .graphB, .graphC, .graphD, .graphE, .numericalA, .numericalB, .numericalC, .numericalD, .numericalE,.mix, .match, .calculus, .calc_work, .calc_work2, .algebra, .alg_work, .desmos, .problem, .pic1, .information, .v0_image, .v0s {
 		flex: 100%;
 		left: 0%;
 		right: 0%;

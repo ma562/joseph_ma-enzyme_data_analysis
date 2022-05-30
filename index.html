@@ -96,5 +96,106 @@
 				<img src = "images/tangent2.png" class = "pic" width = "100%" alt = "">
 			</div>
 		</div>
+		<br>
+		<div class = "mix_n_match">
+			<div class = "mix">
+				<div class = "text">Step 3: Mix and Match / Minimizing SSE</div>
+				Rather than test out just 90 possible pairs of K<sub>m</sub> and V<sub>max</sub>, we finalized our algorithm by testing every single possible combination of them. The potential candidates that would go through the evaluation to minimize SSE would therefore include: <br><br>
+				<ul class = "shift">
+					<li>(K<sub>m1</sub>, V<sub>max1</sub>), (K<sub>m1</sub>, V<sub>max2</sub>), (K<sub>m1</sub>, V<sub>max3</sub>)...(K<sub>m90</sub>, V<sub>max90</sub>)</li>
+					<li>(K<sub>m2</sub>, V<sub>max1</sub>), (K<sub>m2</sub>, V<sub>max2</sub>), (K<sub>m2</sub>, V<sub>max3</sub>)...(K<sub>m2</sub>, V<sub>max90</sub>)</li>
+					<li>(K<sub>m3</sub>, V<sub>max1</sub>), (K<sub>m3</sub>, V<sub>max2</sub>), (K<sub>m3</sub>, V<sub>max3</sub>)...(K<sub>m3</sub>, V<sub>max90</sub>)</li>
+					<li>. . . . . . .</li>
+					<li>(K<sub>m90</sub>, V<sub>max1</sub>), (K<sub>m90</sub>, V<sub>max2</sub>), (K<sub>m90</sub>, V<sub>max3</sub>)...(K<sub>m90</sub>, V<sub>max90</sub>)</li>
+				</ul>
+				<br>
+				We would end up with 90 * 90 = 8100 possible combinations of K<sub>m</sub> and V<sub>max</sub> for each of the 5 enzymes.
+				For each pair in the 8100, the K<sub>m</sub> and V<sub>max</sub> would be passed to a function to evaluate the SSE. This is done by summing the squared differences between the predicted value of the coordinate points based on the provided K<sub>m</sub> and V<sub>max</sub> parameters vs the true values based on the 10 determined coordinate points in the beginning.
+			</div>
+			<div class = "match">
+				<img src = "images/matching.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+		<br>
+		<div class = "resultsA">
+			<div class = "numericalA">
+				<div class = "text">Enzyme A Results</div>
+				The final computed results are as follows:<br><br>
+				<b>V<sub>max</sub></b>: 0.9209 uM/s<br>
+				<b>K<sub>m</sub></b>: 162.4485 uM<br>
+				<b>SSE</b>: 0.0014
+<!-- 				<b>Enzyme B</b><br>
+				V<sub>max</sub> value: 0.8550 uM/s<br>
+				K<sub>m</sub> value: 362.8413 uM<br>
+				SSE: 0.0010<br><br>
+				<b>Enzyme C</b><br>
+				V<sub>max</sub> value: 1.1949 uM/s<br>
+				K<sub>m</sub> value: 201.2476 uM<br>
+				SSE: 0.0005<br><br>
+				<b>Enzyme D</b><br>
+				V<sub>max</sub> value: 1.5509 uM/s<br>
+				K<sub>m</sub> value: 299.2829 uM<br>
+				SSE: 0.0007<br><br>
+				<b>Enzyme E</b><br>
+				V<sub>max</sub> value: 1.5920 uM/s<br>
+				K<sub>m</sub> value: 165.5945 uM<br>
+				SSE: 0.0010 -->
+			</div>
+			<div class = graphA>
+				<img src = "images/ENZYME A.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+		<br>
+		<div class = "resultsB">
+			<div class = "numericalB">
+				<div class = "text">Enzyme B Results</div>
+				<b>Enzyme B</b><br>
+				V<sub>max</sub> value: 0.8550 uM/s<br>
+				K<sub>m</sub> value: 362.8413 uM<br>
+				SSE: 0.0010
+			</div>
+			<div class = graphB>
+				<img src = "images/ENZYME B.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+		<br>
+		<div class = "resultsC">
+			<div class = "numericalC">
+				<div class = "text">Enzyme C Results</div>
+				<b>Enzyme C</b><br>
+				V<sub>max</sub> value: 1.1949 uM/s<br>
+				K<sub>m</sub> value: 201.2476 uM<br>
+				SSE: 0.0005
+			</div>
+			<div class = graphC>
+				<img src = "images/ENZYME C.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+		<br>
+		<div class = "resultsD">
+			<div class = "numericalD">
+				<div class = "text">Enzyme D Results</div>
+				<b>Enzyme D</b><br>
+				V<sub>max</sub> value: 1.5509 uM/s<br>
+				K<sub>m</sub> value: 299.2829 uM<br>
+				SSE: 0.0007
+			</div>
+			<div class = graphD>
+				<img src = "images/ENZYME D.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+		<br>
+		<div class = "resultsE">
+			<div class = "numericalE">
+				<div class = "text">Enzyme E Results</div>
+				<b>Enzyme E</b><br>
+				V<sub>max</sub> value: 1.5920 uM/s<br>
+				K<sub>m</sub> value: 165.5945 uM<br>
+				SSE: 0.0010
+			</div>
+			<div class = graphE>
+				<img src = "images/ENZYME E.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
 	</body>
 </html>

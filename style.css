@@ -184,14 +184,46 @@
 	width: 30%;
 }
 
+.calculus_approach {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: space-between;
+	top: 100px;
+	position: relative;
+}
+
+.calculus {
+	position: relative;
+	left: 2%;
+	background: #e3e3e3;
+	width: 35%;
+	font-family: 'Poppins', sans-serif;
+	color: #00274c;
+	border-radius: 15px;
+	padding: 10px;
+	text-align: justify;
+}
+
+.calc_work {
+	position: relative;
+	width: 30%;
+}
+
+.calc_work2 {
+	position: relative;
+	right: 2%;
+	width: 30%;
+}
+
 @media (max-width: 1200px){
-	.algebra, .alg_work, .desmos, .problem, .pic1, .information, .v0_image, .v0s {
+	.calculus, .calc_work, .calc_work2, .algebra, .alg_work, .desmos, .problem, .pic1, .information, .v0_image, .v0s {
 		margin-bottom: 15px;
 	}
-	.algebra, .v0s, .problem, .information {
+	.calculus, .algebra, .v0s, .problem, .information {
 		padding: 15px;
 	}
-	.algebra, .alg_work, .desmos, .problem, .pic1, .information, .v0_image, .v0s {
+	.calculus, .calc_work, .calc_work2, .algebra, .alg_work, .desmos, .problem, .pic1, .information, .v0_image, .v0s {
 		flex: 100%;
 		left: 0%;
 		right: 0%;

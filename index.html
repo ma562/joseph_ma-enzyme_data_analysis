@@ -26,9 +26,9 @@
 				<br>
 				<div class = "text">About</div>
 				<p>
-					The main focus of this project was to find the best fitting model parameters to represent a data set of reaction velocities and substrate concentrations. In an ideal situation, the data could be perfectly modeled by the michaelis-menten curve shown in the image with the red curve. The equation to model this is shown below the graph. V0 refers to the reaction velocity v. How we obtain V0 from the set of data will be further discussed later. V<sub>max</sub> refers to the maximum reaction velocity or the asymptote at which the red curve approaches. K<sub>m</sub> is the substrate concentration that corresponds to a reaction velocity that is half V<sub>max</sub>. And S is the substrate concentration.
+					The main focus of this project was to find the best fitting model parameters to represent a data set of reaction velocities and substrate concentrations. In an ideal situation, the data could be perfectly modeled by the Michaelis-Menten curve shown in the image with the red curve. The equation to model this is shown below the graph. V0 refers to the reaction velocity v. How we obtain V0 from the set of data will be further discussed later. V<sub>max</sub> refers to the maximum reaction velocity or the asymptote at which the red curve approaches. K<sub>m</sub> is the substrate concentration that corresponds to a reaction velocity that is half V<sub>max</sub>. And S is the substrate concentration.
 					<br><br>
-					In this project, we were given 5 enzymes to analyze: A, B, C, D, E. Each enzyme had a test 1 and an extra test 1 duplicate. We therefore had 10 sets of data in total. Our first step was to obtain the V0 values from each set of data. For each set of data, we were given 10 seperate initial substrate concentrations and we could therefore determine 10 sets of points on the graph (i.e. (S1, V1), (S2, V2)... (S10, V10)). The main challenge in this project was to determine the best fit V<sub>max</sub> and K<sub>m</sub> parameters in the <b><a href = "https://en.wikipedia.org/wiki/Michaelis%E2%80%93Menten_kinetics" target = "_blank">michaelis-menten equation</a></b> to represent the 10 sets of points we have found from the data. We combined two fundamental steps in order to solve this nonlinear regression problem. The first step involved an algebraic approach while the second step involved using the fundamentals of calculus. Our ultimate goal is to compete with the accuracy of previously discovered methods such as the <b><a href = "https://en.wikipedia.org/wiki/Eadie%E2%80%93Hofstee_diagram" target = "_blank">Eadie–Hofstee diagram</a></b>, <b><a href = "https://en.wikipedia.org/wiki/Hanes%E2%80%93Woolf_plot" target = "_blank">Hanes–Woolf plot</a></b> and <b><a href = "https://en.wikipedia.org/wiki/Lineweaver%E2%80%93Burk_plot" target = "_blank">Lineweaver–Burk plot</a></b>.
+					In this project, we were given 5 enzymes to analyze: A, B, C, D, E. Each enzyme had a test 1 and an extra test 1 duplicate. We therefore had 10 sets of data in total. Our first step was to obtain the V0 values from each set of data. For each set of data, we were given 10 seperate initial substrate concentrations and we could therefore determine 10 sets of points on the graph (i.e. (S1, V1), (S2, V2)... (S10, V10)). The main challenge in this project was to determine the best fit V<sub>max</sub> and K<sub>m</sub> parameters in the <b><a href = "https://en.wikipedia.org/wiki/Michaelis%E2%80%93Menten_kinetics" target = "_blank">Michaelis-Menten Equation</a></b> to represent the 10 sets of points we have found from the data. We combined two fundamental steps in order to solve this nonlinear regression problem. The first step involved an algebraic approach while the second step involved using the fundamentals of calculus. Our ultimate goal is to compete with the accuracy of previously discovered methods such as the <b><a href = "https://en.wikipedia.org/wiki/Eadie%E2%80%93Hofstee_diagram" target = "_blank">Eadie–Hofstee diagram</a></b>, <b><a href = "https://en.wikipedia.org/wiki/Hanes%E2%80%93Woolf_plot" target = "_blank">Hanes–Woolf plot</a></b> and <b><a href = "https://en.wikipedia.org/wiki/Lineweaver%E2%80%93Burk_plot" target = "_blank">Lineweaver–Burk plot</a></b>.
 
 
 					<br><br>
@@ -63,8 +63,8 @@
 			</div>
 			<div class = "problem">
 				<div class = "text">Nonlinear Regression</div>
-				By plotting our previously determined points from the section 'Obtaining the reaction velocities V0', we would come up with points that may seem to line up to fit the michaelis-menten curve similar to the red curve at the top of this page.<br><br>
-				From the michaelis-menten equation, we have two unknown parameters: V<sub>max</sub> and K<sub>m</sub>. The animation from desmos is shown where the variable y represents V0 (reaction velocity v), x represents Substrate Concentration [S], v represents V<sub>max</sub> and k represents K<sub>m</sub>. Our goal is to find the best V<sub>max</sub> and K<sub>m</sub> to model our data points. In an ideal world, there will be a value for V<sub>max</sub> and K<sub>m</sub> which will yield a curve that passes through each and every single data point.
+				By plotting our previously determined points from the section 'Obtaining the reaction velocities V0', we would come up with points that may seem to line up to fit the Michaelis-Menten curve similar to the red curve at the top of this page.<br><br>
+				From the Michaelis-Menten equation, we have two unknown parameters: V<sub>max</sub> and K<sub>m</sub>. The animation from desmos is shown where the variable y represents V0 (reaction velocity v), x represents Substrate Concentration [S], v represents V<sub>max</sub> and k represents K<sub>m</sub>. Our goal is to find the best V<sub>max</sub> and K<sub>m</sub> to model our data points. In an ideal world, there will be a value for V<sub>max</sub> and K<sub>m</sub> which will yield a curve that passes through each and every single data point.
 			</div>
 		</div>
 		<br>
@@ -79,6 +79,21 @@
 			</div>
 			<div class = "alg_work">
 				<img src = "images/algebraic.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+		<br>
+		<div class = "calculus_approach">
+			<div class = "calculus">
+				<div class = "text">Step 2: The Calculus Based Approach</div>
+				The second approach provides us with an additional set of constraint equations to apply the algebra based approach to. It takes advantage of the fact that we know that the value of K<sub>m</sub> corresponds to the value on the curve at half V<sub>max</sub>. Knowing this, we could first find the slope of the tangent line at the point (K<sub>m</sub>, V<sub>max</sub>) by differentiating the original Michaelis-Menten Equation and finding the derivative at point K<sub>m</sub>. Once the slope of the tangent line is obtained, we can easily solve for the y-intercept and obtain a new constraint equation.<br><br>
+				With this new equation, we can apply the same method from 'Step 1: The Algebra Based Approach' to solve for the two unknowns K<sub>m</sub> and V<sub>max</sub>.<br><br>
+				This method will allow us to use our 10 coordinates on the new set of equations as well and we therefore will have 45 * 2 = 90 potential K<sub>m</sub> and V<sub>max</sub> values produced for each enzyme. 
+			</div>
+			<div class = "calc_work">
+				<img src = "images/tangent.png" class = "pic" width = "100%" alt = "">
+			</div>
+			<div class = "calc_work2">
+				<img src = "images/tangent2.png" class = "pic" width = "100%" alt = "">
 			</div>
 		</div>
 	</body>

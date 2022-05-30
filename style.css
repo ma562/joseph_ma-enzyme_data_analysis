@@ -123,11 +123,45 @@
 	text-align: justify;
 }
 
+.linear_regression {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: space-between;
+	top: 100px;
+	position: relative;
+}
+
+.desmos {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	left: 2%;
+	width: 65%;
+	padding: 2.5px;
+	background: #00274c;
+	border-radius: 20px;
+	text-align: center;
+}
+
+.problem {
+	position: relative;
+	right: 2%;
+	background: #e3e3e3;
+	width: 30%;
+	font-family: 'Poppins', sans-serif;
+	color: #00274c;
+	border-radius: 15px;
+	padding: 10px;
+	text-align: justify;
+}
+
 @media (max-width: 1200px){
-	.pic1, .information, .v0_image, .v0s {
+	.desmos, .problem, .pic1, .information, .v0_image, .v0s {
 		margin-bottom: 15px;
 	}
-	.pic1, .information, .v0_image, .v0s {
+	.desmos, .problem, .pic1, .information, .v0_image, .v0s {
 		flex: 100%;
 		left: 0%;
 		right: 0%;

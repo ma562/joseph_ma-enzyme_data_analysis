@@ -185,10 +185,13 @@
 }
 
 @media (max-width: 1200px){
-	.desmos, .problem, .pic1, .information, .v0_image, .v0s {
+	.algebra, .alg_work, .desmos, .problem, .pic1, .information, .v0_image, .v0s {
 		margin-bottom: 15px;
 	}
-	.desmos, .problem, .pic1, .information, .v0_image, .v0s {
+	.algebra, .v0s, .problem, .information {
+		padding: 15px;
+	}
+	.algebra, .alg_work, .desmos, .problem, .pic1, .information, .v0_image, .v0s {
 		flex: 100%;
 		left: 0%;
 		right: 0%;

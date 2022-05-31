@@ -28,7 +28,7 @@
 				<p>
 					The main focus of this project was to find the best fitting model parameters to represent a data set of reaction velocities and substrate concentrations. In an ideal situation, the data could be perfectly modeled by the Michaelis-Menten curve shown in the image with the red curve. The equation to model this is shown below the graph. V0 refers to the reaction velocity v. How we obtain V0 from the set of data will be further discussed later. V<sub>max</sub> refers to the maximum reaction velocity or the asymptote at which the red curve approaches. K<sub>m</sub> is the substrate concentration that corresponds to a reaction velocity that is half V<sub>max</sub>. And S is the substrate concentration.
 					<br><br>
-					In this project, we were given 5 enzymes to analyze: A, B, C, D, E. Each enzyme had a test 1 and an extra test 1 duplicate. We therefore had 10 sets of data in total. Our first step was to obtain the V0 values from each set of data. For each set of data, we were given 10 seperate initial substrate concentrations and we could therefore determine 10 sets of points on the graph (i.e. (S1, V1), (S2, V2)... (S10, V10)). The main challenge in this project was to determine the best fit V<sub>max</sub> and K<sub>m</sub> parameters in the <b><a href = "https://en.wikipedia.org/wiki/Michaelis%E2%80%93Menten_kinetics" target = "_blank">Michaelis-Menten Equation</a></b> to represent the 10 sets of points we have found from the data. We combined two fundamental steps in order to solve this nonlinear regression problem. The first step involved an algebraic approach while the second step involved using the fundamentals of calculus. Our ultimate goal is to compete with the accuracy of previously discovered methods such as the <b><a href = "https://en.wikipedia.org/wiki/Eadie%E2%80%93Hofstee_diagram" target = "_blank">Eadie–Hofstee diagram</a></b>, <b><a href = "https://en.wikipedia.org/wiki/Hanes%E2%80%93Woolf_plot" target = "_blank">Hanes–Woolf plot</a></b> and <b><a href = "https://en.wikipedia.org/wiki/Lineweaver%E2%80%93Burk_plot" target = "_blank">Lineweaver–Burk plot</a></b>.
+					In this project, we were given 5 enzymes to analyze: A, B, C, D, E. Each enzyme had a test 1 and an extra test 1 duplicate. We therefore had 10 sets of data in total. Our first step was to obtain the V0 values from each set of data. For each set of data, we were given 10 seperate initial substrate concentrations and we could therefore determine 10 sets of points on the graph (i.e. (S1, V1), (S2, V2)... (S10, V10)). The main challenge in this project was to determine the best fit V<sub>max</sub> and K<sub>m</sub> parameters in the <b><a href = "https://en.wikipedia.org/wiki/Michaelis%E2%80%93Menten_kinetics" target = "_blank">Michaelis-Menten Equation</a></b> to represent the 10 sets of points we have found from the data. We combined two fundamental steps in order to solve this nonlinear regression problem. The first step involved an algebraic approach while the second step involved mixing and matching our potential V<sub>max</sub> and K<sub>m</sub> candidates. Our ultimate goal is to be as accurate as previously discovered methods such as the <b><a href = "https://en.wikipedia.org/wiki/Eadie%E2%80%93Hofstee_diagram" target = "_blank">Eadie–Hofstee diagram</a></b>, <b><a href = "https://en.wikipedia.org/wiki/Hanes%E2%80%93Woolf_plot" target = "_blank">Hanes–Woolf plot</a></b> and <b><a href = "https://en.wikipedia.org/wiki/Lineweaver%E2%80%93Burk_plot" target = "_blank">Lineweaver–Burk plot</a></b>.
 
 
 					<br><br>
@@ -70,18 +70,18 @@
 		<br>
 		<div class = "algebraic_approach">
 			<div class = "algebra">
-				<div class = "text">Step 1: The Algebra Based Approach</div>
-				Our first approach involves solving systems of equations. At the moment, we are solving for two unknown variables V<sub>max</sub> and K<sub>m</sub>. Because we need two equations to solve two unknowns, we can pick any two coordinates from our previously determined 10 points to form two equations. The working is shown with the final equations highlighted.<br><br>
-				Just for example, we might test out points (S7, V7), (S10, V10). Their values are (250 uM, 0.5553 uM / s) and (2000 uM, 0.8794 uM / s) respectively. Based on the highlighted final equations, we should calculate K<sub>m</sub> first since that equation does not hold any unknown values. Though it does not matter which points we pick for V1, S1 and V2, S2, it is important to be consistent after you choose the values. The computed K<sub>m</sub> based on these two coordinates is 189.925 uM and the V<sub>max</sub> value was found to be 0.9594 uM / s. This method can be repeated for several different combinations of points e.g. (S7, V7), (S8, V8).
+				<div class = "text">Step 1: The Algebraic Approach</div>
+				The main idea involves solving a system of equations. At the moment, we are solving for two unknown variables V<sub>max</sub> and K<sub>m</sub>. Because we need two equations to solve two unknowns, we can pick any two coordinates from our previously determined 10 points to form two equations. The working is shown with the final equations highlighted.<br><br>
+				Just for example, we might test out points (S7, V7), (S10, V10). Their values are (250 uM, 0.5553 uM / s) and (2000 uM, 0.8794 uM / s) respectively. Based on the highlighted final equations, we should calculate K<sub>m</sub> first since that equation does not hold any unknown values. Though it does not matter which points we pick for V1, S1 and V2, S2, it is important to be consistent after you choose the values. The computed K<sub>m</sub> based on these two coordinates is 189.925 uM and the V<sub>max</sub> value was found to be 0.9594 uM / s. This method can be repeated for several different combinations of points e.g. (S7, V7), (S8, V8) or (S7, V7), (S9, V9)... etc.
 				<br><br>
-				With this method, the challenge is to determine which two set of coordinates out of our 10 would be the best to select and represent the model. If we try out all possible combinations we will get 0.5*n*(n-1) different possibilities (where n is the number of points total). We therefore have 45 different combinations to test and try out.<br><br>
-				The first iteration of this idea was to find the best pair of coordinates out of the 45 combinations which resulted in the least SSE (Sum of Squared Errors). While this method was fairly accurate, it lacked precision (especially when we ran the algorithm on all 5 enzymes). This led us to reconsider our approach and ultimately led to the second method: The Calculus Based Approach.
+				With this method, the challenge was to determine which two set of coordinates out of our 10 would be the best to select and represent the model. If we try out all possible combinations we will get 0.5*n*(n-1) different possibilities (where n is the number of points total). We therefore have 45 different combinations to test and try out.<br><br>
+				The first iteration of this idea was to find the best pair of coordinates out of the 45 combinations which yielded V<sub>max</sub> and K<sub>m</sub> values that resulted in the least SSE (Sum of Squared Errors). While this method was fairly accurate, it lacked precision (especially when we ran the algorithm on all 5 enzymes). This led us to reconsider our approach and ultimately led to Step 2: mixing and matching.
 			</div>
 			<div class = "alg_work">
 				<img src = "images/algebraic.png" class = "pic" width = "100%" alt = "">
 			</div>
 		</div>
-		<br>
+<!-- 		<br>
 		<div class = "calculus_approach">
 			<div class = "calculus">
 				<div class = "text">Step 2: The Calculus Based Approach</div>
@@ -111,22 +111,22 @@
 				The black line represents the line x = K<sub>m</sub><br><br>
 				Want to see it for yourself? Click <b><a href = "https://www.desmos.com/calculator/douvhuwvng" target = "_blank">here</a></b>.
 			</div>
-		</div>
+		</div> -->
 		<br>
 		<div class = "mix_n_match">
 			<div class = "mix">
-				<div class = "text">Step 3: Mix and Match / Minimizing SSE</div>
-				Rather than test out just 90 possible pairs of K<sub>m</sub> and V<sub>max</sub>, we finalized our algorithm by testing every single possible combination of them. The potential candidates that would go through the evaluation to minimize SSE would therefore include: <br><br>
+				<div class = "text">Step 2: Mix and Match / Minimizing SSE</div>
+				Rather than test out just 45 possible pairs of K<sub>m</sub> and V<sub>max</sub>, we finalized our algorithm by testing every single possible combination of them. The potential candidates that would go through the evaluation to minimize SSE would therefore include: <br><br>
 				<ul class = "shift">
-					<li>(K<sub>m1</sub>, V<sub>max1</sub>), (K<sub>m1</sub>, V<sub>max2</sub>), (K<sub>m1</sub>, V<sub>max3</sub>)...(K<sub>m90</sub>, V<sub>max90</sub>)</li>
-					<li>(K<sub>m2</sub>, V<sub>max1</sub>), (K<sub>m2</sub>, V<sub>max2</sub>), (K<sub>m2</sub>, V<sub>max3</sub>)...(K<sub>m2</sub>, V<sub>max90</sub>)</li>
-					<li>(K<sub>m3</sub>, V<sub>max1</sub>), (K<sub>m3</sub>, V<sub>max2</sub>), (K<sub>m3</sub>, V<sub>max3</sub>)...(K<sub>m3</sub>, V<sub>max90</sub>)</li>
+					<li>(K<sub>m1</sub>, V<sub>max1</sub>), (K<sub>m1</sub>, V<sub>max2</sub>), (K<sub>m1</sub>, V<sub>max3</sub>)...(K<sub>m1</sub>, V<sub>max45</sub>)</li>
+					<li>(K<sub>m2</sub>, V<sub>max1</sub>), (K<sub>m2</sub>, V<sub>max2</sub>), (K<sub>m2</sub>, V<sub>max3</sub>)...(K<sub>m2</sub>, V<sub>max45</sub>)</li>
+					<li>(K<sub>m3</sub>, V<sub>max1</sub>), (K<sub>m3</sub>, V<sub>max2</sub>), (K<sub>m3</sub>, V<sub>max3</sub>)...(K<sub>m3</sub>, V<sub>max45</sub>)</li>
 					<li>. . . . . . .</li>
-					<li>(K<sub>m90</sub>, V<sub>max1</sub>), (K<sub>m90</sub>, V<sub>max2</sub>), (K<sub>m90</sub>, V<sub>max3</sub>)...(K<sub>m90</sub>, V<sub>max90</sub>)</li>
+					<li>(K<sub>m45</sub>, V<sub>max1</sub>), (K<sub>m45</sub>, V<sub>max2</sub>), (K<sub>m45</sub>, V<sub>max3</sub>)...(K<sub>m45</sub>, V<sub>max45</sub>)</li>
 				</ul>
 				<br>
-				We would end up with 90 * 90 = 8100 possible combinations of K<sub>m</sub> and V<sub>max</sub> for each of the 5 enzymes.
-				For each pair in the 8100, the K<sub>m</sub> and V<sub>max</sub> would be passed to a function to evaluate the SSE. This is done by summing the squared differences between the predicted value of the coordinate points based on the provided K<sub>m</sub> and V<sub>max</sub> parameters vs the true values based on the 10 determined coordinate points in the beginning.
+				We would end up with 45 * 45 = 2025 possible combinations of K<sub>m</sub> and V<sub>max</sub> for each of the 5 enzymes.
+				For each pair in the 2025, the K<sub>m</sub> and V<sub>max</sub> would be passed to a function to evaluate the SSE. This is done by summing the squared differences between the predicted value of the coordinate points based on the provided K<sub>m</sub> and V<sub>max</sub> parameters vs the true values based on the 10 determined coordinate points in the beginning.
 			</div>
 			<div class = "match">
 				<img src = "images/matching.png" class = "pic" width = "100%" alt = "">

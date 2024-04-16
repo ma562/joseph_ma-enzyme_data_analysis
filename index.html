@@ -135,10 +135,10 @@
 		<br>
 		<div class = "resultsA">
 			<div class = "numericalA">
-				<div class = "text">Enzyme A Results</div>
-				<b>V<sub>max</sub></b>: 0.9209 uM/s<br>
-				<b>K<sub>m</sub></b>: 162.4485 uM<br>
-				<b>SSE</b>: 0.0014<br><br>
+				<div class = "text">Enzyme A Results before Gradient Descent</div>
+				<b>V<sub>max</sub></b>: 0.920935 uM/s<br>
+				<b>K<sub>m</sub></b>: 162.448487 uM<br>
+				<b>SSE</b>: 0.001414<br><br>
 				<b>Data Points</b>:<br>
 				(3.75 uM, 0.0235 uM / s)<br>
 				(7.5 uM, 0.0437 uM / s)<br>
@@ -158,10 +158,10 @@
 		<br>
 		<div class = "resultsB">
 			<div class = "numericalB">
-				<div class = "text">Enzyme B Results</div>
-				<b>V<sub>max</sub></b>: 0.8550 uM/s<br>
-				<b>K<sub>m</sub></b>: 362.8413 uM<br>
-				<b>SSE</b>: 0.0010<br><br>
+				<div class = "text">Enzyme B Results before Gradient Descent</div>
+				<b>V<sub>max</sub></b>: 0.855029 uM/s<br>
+				<b>K<sub>m</sub></b>: 362.841333 uM<br>
+				<b>SSE</b>: 0.000988<br><br>
 				<b>Data Points</b>:<br>
 				(3.75 uM, 0.0095 uM / s)<br>
 				(7.5 uM, 0.0180 uM / s)<br>
@@ -181,10 +181,10 @@
 		<br>
 		<div class = "resultsC">
 			<div class = "numericalC">
-				<div class = "text">Enzyme C Results</div>
-				<b>V<sub>max</sub></b>: 1.1949 uM/s<br>
-				<b>K<sub>m</sub></b>: 201.2476 uM<br>
-				<b>SSE</b>: 0.0005<br><br>
+				<div class = "text">Enzyme C Results before Gradient Descent</div>
+				<b>V<sub>max</sub></b>: 1.194908 uM/s<br>
+				<b>K<sub>m</sub></b>: 201.247645 uM<br>
+				<b>SSE</b>: 0.000501<br><br>
 				<b>Data Points</b>:<br>
 				(3.75 uM, 0.0231 uM / s)<br>
 				(7.5 uM, 0.0431 uM / s)<br>
@@ -204,10 +204,10 @@
 		<br>
 		<div class = "resultsD">
 			<div class = "numericalD">
-				<div class = "text">Enzyme D Results</div>
-				<b>V<sub>max</sub></b>: 1.5509 uM/s<br>
-				<b>K<sub>m</sub></b>: 299.2829 uM<br>
-				<b>SSE</b>: 0.0007<br><br>
+				<div class = "text">Enzyme D Results before Gradient Descent</div>
+				<b>V<sub>max</sub></b>: 1.550868 uM/s<br>
+				<b>K<sub>m</sub></b>: 299.282898 uM<br>
+				<b>SSE</b>: 0.000672<br><br>
 				<b>Data Points</b>:<br>
 				(3.75 uM, 0.0202 uM / s)<br>
 				(7.5 uM, 0.0395 uM / s)<br>
@@ -227,10 +227,10 @@
 		<br>
 		<div class = "resultsE">
 			<div class = "numericalE">
-				<div class = "text">Enzyme E Results</div>
-				<b>V<sub>max</sub></b>: 1.5897 uM/s<br>
-				<b>K<sub>m</sub></b>: 165.5945 uM<br>
-				<b>SSE</b>: 0.0010<br><br>
+				<div class = "text">Enzyme E Results before Gradient Descent</div>
+				<b>V<sub>max</sub></b>: 1.589693 uM/s<br>
+				<b>K<sub>m</sub></b>: 165.594468 uM<br>
+				<b>SSE</b>: 0.001004<br><br>
 				<b>Data Points</b>:<br>
 				(3.75 uM, 0.0350 uM / s)<br>
 				(7.5 uM, 0.0717 uM / s)<br>
@@ -245,6 +245,135 @@
 			</div>
 			<div class = graphE>
 				<img src = "images/ENZYME E.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+		<br>
+		<div class = "dijkstra_info">
+			<div class = "dijkstra">
+				<div class = "text">Step 3: Gradient Descent</div>
+				The results from the previous two steps look pretty good. Could we improve on this though? By using gradient descent we can edge even closer to the optimal value of <b>V<sub>max</sub> and K<sub>m</sub></b>.<br><br>
+				We first start off from our previously found "optimal values" of <b>V<sub>max</sub> and K<sub>m</sub></b> shown in the results above. Because these may be suboptimal values or in other words values that lead us to a local minima of the Sum of Squared Errors (SSE), the plan is to explore ±10% from our current values. If we look at <b>Testing Pairs</b> we could see that we try out 5 values from our current ones. Because we have both <b>V<sub>max</sub> and K<sub>m</sub></b> this will result in 5 * 5 = 25 pairs. Each pair is run through gradient descent and after convergence the <b>SSE</b> is evaluated. The converged pair that provides us with the least <b>SSE</b> is kept.
+				<br><br>
+				For a deeper understanding of how gradient descent can enhance model optimization and to see its application in other contexts, consider exploring my other project blog post <b><a href = "https://ma562.github.io/joseph_ma-neural_networks/" target = "_blank">Neural Network Architecture from Scratch</a></b>.<br><br>.
+			</div>
+			<div class = "state1_image">
+				<img src = "images/grad_descent.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+
+		<br>
+		<div class = "resultsA">
+			<div class = "numericalA">
+				<div class = "text">Enzyme A Results after Gradient Descent</div>
+				<b>V<sub>max</sub></b>: 0.934056 uM/s<br>
+				<b>K<sub>m</sub></b>: 170.568012 uM<br>
+				<b>SSE</b>: 0.001286<br><br>
+				<b>Data Points</b>:<br>
+				(3.75 uM, 0.0235 uM / s)<br>
+				(7.5 uM, 0.0437 uM / s)<br>
+				(15 uM, 0.0788 uM / s)<br>
+				(30 uM, 0.1552 uM / s)<br>
+				(65 uM, 0.2633 uM / s)<br>
+				(125 uM, 0.3997 uM / s)<br>
+				(250 uM, 0.5553 uM / s)<br>
+				(500 uM, 0.6730 uM / s)<br>
+				(1000 uM, 0.7908 uM / s)<br>
+				(2000 uM, 0.8794 uM / s)<br>
+			</div>
+			<div class = graphA>
+				<img src = "images/enze_a.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+		<br>
+		<div class = "resultsB">
+			<div class = "numericalB">
+				<div class = "text">Enzyme B Results after Gradient Descent</div>
+				<b>V<sub>max</sub></b>: 0.855870 uM/s<br>
+				<b>K<sub>m</sub></b>: 362.842262 uM<br>
+				<b>SSE</b>: 0.000987<br><br>
+				<b>Data Points</b>:<br>
+				(3.75 uM, 0.0095 uM / s)<br>
+				(7.5 uM, 0.0180 uM / s)<br>
+				(15 uM, 0.0361 uM / s)<br>
+				(30 uM, 0.0677 uM / s)<br>
+				(65 uM, 0.1314 uM / s)<br>
+				(125 uM, 0.2179 uM / s)<br>
+				(250 uM, 0.3473 uM / s)<br>
+				(500 uM, 0.4816 uM / s)<br>
+				(1000 uM, 0.6532 uM / s)<br>
+				(2000 uM, 0.7131 uM / s)<br>
+			</div>
+			<div class = graphB>
+				<img src = "images/enze_b.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+		<br>
+		<div class = "resultsC">
+			<div class = "numericalC">
+				<div class = "text">Enzyme C Results after Gradient Descent</div>
+				<b>V<sub>max</sub></b>: 1.194148 uM/s<br>
+				<b>K<sub>m</sub></b>: 201.249568 uM<br>
+				<b>SSE</b>: 0.000499<br><br>
+				<b>Data Points</b>:<br>
+				(3.75 uM, 0.0231 uM / s)<br>
+				(7.5 uM, 0.0431 uM / s)<br>
+				(15 uM, 0.0837 uM / s)<br>
+				(30 uM, 0.1510 uM / s)<br>
+				(65 uM, 0.2883 uM / s)<br>
+				(125 uM, 0.4506 uM / s)<br>
+				(250 uM, 0.6640 uM / s)<br>
+				(500 uM, 0.8687 uM / s)<br>
+				(1000 uM, 0.9832 uM / s)<br>
+				(2000 uM, 1.0841 uM / s)<br>
+			</div>
+			<div class = graphC>
+				<img src = "images/enze_c.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+		<br>
+		<div class = "resultsD">
+			<div class = "numericalD">
+				<div class = "text">Enzyme D Results after Gradient Descent</div>
+				<b>V<sub>max</sub></b>: 1.554397 uM/s<br>
+				<b>K<sub>m</sub></b>: 299.280365 uM<br>
+				<b>SSE</b>: 0.000646<br><br>
+				<b>Data Points</b>:<br>
+				(3.75 uM, 0.0202 uM / s)<br>
+				(7.5 uM, 0.0395 uM / s)<br>
+				(15 uM, 0.0770 uM / s)<br>
+				(30 uM, 0.1472 uM / s)<br>
+				(65 uM, 0.2802 uM / s)<br>
+				(125 uM, 0.4683 uM / s)<br>
+				(250 uM, 0.7040 uM / s)<br>
+				(500 uM, 0.9684 uM / s)<br>
+				(1000 uM, 1.1802 uM / s)<br>
+				(2000 uM, 1.3662 uM / s)<br>
+			</div>
+			<div class = graphD>
+				<img src = "images/enze_d.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+		<br>
+		<div class = "resultsE">
+			<div class = "numericalE">
+				<div class = "text">Enzyme E Results after Gradient Descent</div>
+				<b>V<sub>max</sub></b>: 1.590849 uM/s<br>
+				<b>K<sub>m</sub></b>: 165.598473 uM<br>
+				<b>SSE</b>: 0.001000<br><br>
+				<b>Data Points</b>:<br>
+				(3.75 uM, 0.0350 uM / s)<br>
+				(7.5 uM, 0.0717 uM / s)<br>
+				(15 uM, 0.1335 uM / s)<br>
+				(30 uM, 0.2301 uM / s)<br>
+				(65 uM, 0.4597 uM / s)<br>
+				(125 uM, 0.6790 uM / s)<br>
+				(250 uM, 0.9527 uM / s)<br>
+				(500 uM, 1.2123 uM / s)<br>
+				(1000 uM, 1.3478 uM / s)<br>
+				(2000 uM, 1.4749 uM / s)<br>
+			</div>
+			<div class = graphE>
+				<img src = "images/enze_e.png" class = "pic" width = "100%" alt = "">
 			</div>
 		</div>
 	</body>

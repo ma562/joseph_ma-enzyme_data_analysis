@@ -7,6 +7,34 @@
 	text-decoration: none;
 }
 
+.dijkstra_info {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: space-between;
+	top: 100px;
+	position: relative;
+}
+
+.dijkstra {
+	font-family: 'Poppins', sans-serif;
+	color: #00274c;
+	text-align: justify;
+	background: #e3e3e3;
+	position: relative;
+	left: 2%;
+	border-radius: 15px;
+	padding: 10px;
+	width: 48%;
+}
+
+
+.state1_image {
+	position: relative;
+	width: 46%;
+	right: 2%;
+}
+
 .max-width{
 	max-width: 1300px;
 	padding: 0 80px;
@@ -277,13 +305,13 @@
 
 
 @media (max-width: 1200px){
-	.graphA, .graphB, .graphC, .graphD, .graphE, .numericalA, .numericalB, .numericalC, .numericalD, .numericalE, .mix, .match, .calculus, .calc_work, .calc_work2, .algebra, .alg_work, .desmos, .problem, .pic1, .information, .v0_image, .v0s {
+	.dijkstra, .state1_image, .graphA, .graphB, .graphC, .graphD, .graphE, .numericalA, .numericalB, .numericalC, .numericalD, .numericalE, .mix, .match, .calculus, .calc_work, .calc_work2, .algebra, .alg_work, .desmos, .problem, .pic1, .information, .v0_image, .v0s {
 		margin-bottom: 15px;
 	}
-	.numericalA, .numericalB, .numericalC, .numericalD, .numericalE, .mix, .calculus, .algebra, .v0s, .problem, .information {
+	.dijkstra, .numericalA, .numericalB, .numericalC, .numericalD, .numericalE, .mix, .calculus, .algebra, .v0s, .problem, .information {
 		padding: 15px;
 	}
-	.graphA, .graphB, .graphC, .graphD, .graphE, .numericalA, .numericalB, .numericalC, .numericalD, .numericalE,.mix, .match, .calculus, .calc_work, .calc_work2, .algebra, .alg_work, .desmos, .problem, .pic1, .information, .v0_image, .v0s {
+	.dijkstra, .state1_image, .graphA, .graphB, .graphC, .graphD, .graphE, .numericalA, .numericalB, .numericalC, .numericalD, .numericalE,.mix, .match, .calculus, .calc_work, .calc_work2, .algebra, .alg_work, .desmos, .problem, .pic1, .information, .v0_image, .v0s {
 		flex: 100%;
 		left: 0%;
 		right: 0%;
